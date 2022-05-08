@@ -21,7 +21,7 @@ export default function TodoInput() {
 
   return (
     <Fragment>
-      <h1 className="text-center mt-5 display-1">Todo List</h1>
+      <h1 className="text-center mt-5 display-1">O'CRUD ~ Todo List</h1>
       <form className="d-flex" onSubmit={onFormSubmit}>
         <input type="text" className="form-control" placeholder="What's on your mind?" value={description} 
         onChange={event => setDescription(event.target.value)}/>
