@@ -5,20 +5,24 @@ const path = require('path');
 const cors = require('cors');
 const pool = require('./db');
 
+//PORT
+const PORT = process.env.PORT || 4000;
+
 
 //MIDDLEWARE
 app.use(cors());
 app.use(express.json()); //my notes: this will allow us to use req.body - ie., such as in postman
  
 
-//PORT
-const PORT = process.env.PORT || 4000;
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join__dirname, "client/build"))
+}
 
 
 //ROUTES
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'index.html'));
+// });
 
 //Create Todo
 app.post('/todos', async (req, res) => {
@@ -80,6 +84,6 @@ app.delete('/todos/:id', async (req, res) => {
     }
 })
 
-app.listen(process.env.PORT || 4000, () => {
+app.listen(PORT || 4000, () => {
     console.log('my node app works!');
 });
