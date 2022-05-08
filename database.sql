@@ -1,4 +1,4 @@
-CREATE DATABASE fulltodo;
+-- CREATE DATABASE fulltodo;
 
 CREATE TABLE todo(
   todo_id SERIAL PRIMARY KEY,
