@@ -1,3 +1,4 @@
+//Below is my RESTful API of Postgres
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -56,10 +57,28 @@ app.get('/todos/:id', async (req, res) => {
 });
 
 //Edit Todo
-
+app.put('/todos/:id', async (req, res) => {
+    try {
+        const {id} = req.params;
+        const {description} = req.body;
+        const editTodo = await pool.query('UPDATE todo SET description = $1 WHERE todo_id = $2', [description, id]);
+        res.json("To-Do Updated!");
+        // console.log(req.params)
+    } catch (err) {
+        console.error(err.message);
+    } 
+});
 
 //Delete Todo
-
+app.delete('/todos/:id', async (req, res) => {
+    try {
+        const {id} = req.params;
+        const deleteTodo = await pool.query('DELETE FROM todo WHERE todo_id = $1', [id])
+        res.json('To-Do Deleted!');
+    } catch (err) {
+        console.log(err.message);
+    }
+})
 
 app.listen(process.env.PORT || 4000, () => {
     console.log('my node app works!');
