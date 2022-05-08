@@ -7,7 +7,7 @@ export default function TodoInput() {
     event.preventDefault();
     try {
       const body = {description};
-      const response = await fetch("http://localhost:4000/todos", {
+      const response = await fetch("/todos", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(body)
