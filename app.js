@@ -1,7 +1,13 @@
-let express = require('express');
-let app = express();
-let path = require('path');
+const express = require('express');
+const app = express();
+const path = require('path');
+const cors = require('cors');
 
+//middleware
+app.use(cors());
+app.use(express.json());
+
+//PORT
 const PORT = process.env.PORT || 4000;
 
 app.get('/', (req, res) => {
