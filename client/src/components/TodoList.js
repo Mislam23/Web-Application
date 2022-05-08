@@ -1,5 +1,6 @@
 import React, {Fragment, useEffect, useState} from "react";
 //my notes: useEffect will help us by making fetch requests to our restful api, whenever the TodoList component gets  rendered
+import TodoEdit from "./TodoEdit"
 
 const TodoList = () => {
 
@@ -10,6 +11,7 @@ const TodoList = () => {
       const deleteTodo = await fetch(`http://localhost:4000/todos/${id}`, {
         method: "DELETE"
       })
+      setTodos(todos.filter(todo => todo.todo_id !== id));
       // console.log(deleteTodo);
     } catch (err) {
       console.error(err.message)
@@ -51,8 +53,9 @@ const TodoList = () => {
           </tr>*/}
           {todos.map(todo => (
             <tr key={todo.todo_id}>
-              <td>{todo.description}</td>
-              <td><button className="btn btn-outline-warning form-control">Edit</button></td>
+              <td className="align-middle">{todo.description}</td>
+              {/* <td><button className="btn btn-outline-warning form-control"><TodoEdit />Edit</button></td> */}
+              <td><TodoEdit todo={todo} /></td>
               <td><button className="btn btn-outline-danger form-control" onClick={() => deleteTodo(todo.todo_id)}>Delete</button></td>
             </tr>
           ))}
