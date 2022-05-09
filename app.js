@@ -15,7 +15,7 @@ app.use(express.json()); //my notes: this will allow us to use req.body - ie., s
  
 
 if(process.env.NODE_ENV === "production"){
-    app.use(express.static(path.join__dirname, "client/build"))
+    app.use(express.static(path.join(__dirname, "client/build")))
 }
 
 
