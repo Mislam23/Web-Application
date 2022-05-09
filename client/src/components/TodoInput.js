@@ -12,7 +12,7 @@ const TodoInput = () => {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(body)
       });
-      window.location = "https://fullstack-crud-todolist-webapp.herokuapp.com/";
+      window.location = "/";
       // console.log(response)
     } catch (err) {
       console.error(err.message)
