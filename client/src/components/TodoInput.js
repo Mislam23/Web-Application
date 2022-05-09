@@ -1,6 +1,6 @@
 import React, {Fragment, useState} from "react";
 
-export default function TodoInput() {
+const TodoInput = () => {
 
   const [description, setDescription] = useState("");
   const onFormSubmit = async (event) => {
@@ -17,7 +17,7 @@ export default function TodoInput() {
     } catch (err) {
       console.error(err.message)
     }
-  }
+  };
 
   return (
     <Fragment>
@@ -28,6 +28,6 @@ export default function TodoInput() {
         <button className="btn btn-outline-info">Add to List</button>
       </form>
     </Fragment>
-  )
-}
+  );
+};
 
