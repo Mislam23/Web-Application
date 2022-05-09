@@ -6,7 +6,7 @@ const cors = require('cors');
 const pool = require('./db');
 
 //PORT
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 
 
 //MIDDLEWARE
@@ -88,6 +88,6 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client/build/index.html"))
 })
 
-app.listen(PORT || 4000, () => {
+app.listen(PORT || 3000, () => {
     console.log('my node app works!');
 });
