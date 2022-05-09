@@ -8,10 +8,8 @@
     "npm": "8.1.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "start nodemon server.js && start yarn --cwd client start",
-    "start": "node server.js",
-    "heroku-prebuild": "npm install --prefix client && npm run-script build --prefix client"
+    "start": "nodemon app.js",
+    "heroku-postbuild":  "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
